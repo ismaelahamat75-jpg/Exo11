@@ -1,0 +1,116 @@
+Algorithme SommeDistincte
+
+Variables :
+    T1 : tableau d'entiers
+    T2 : tableau d'entiers
+    i, j : entiers
+    somme : entier
+    trouve : booléen
+
+Début
+
+    T1 ← [3, 1, 7, 9]
+    T2 ← [2, 4, 1, 9, 3]
+    somme ← 0
+
+    // Parcourir T1
+    Pour i de 0 à longueur(T1)-1 faire
+        trouve ← Faux
+        
+        Pour j de 0 à longueur(T2)-1 faire
+            Si T1[i] = T2[j] alors
+                trouve ← Vrai
+            FinSi
+        FinPour
+
+        Si trouve = Faux alors
+            somme ← somme + T1[i]
+        FinSi
+    FinPour
+
+    // Parcourir T2
+    Pour i de 0 à longueur(T2)-1 faire
+        trouve ← Faux
+        
+        Pour j de 0 à longueur(T1)-1 faire
+            Si T2[i] = T1[j] alors
+                trouve ← Vrai
+            FinSi
+        FinPour
+
+        Si trouve = Faux alors
+            somme ← somme + T2[i]
+        FinSi
+    FinPour
+
+    Afficher "Somme =", somme
+
+Fin
+
+Procédure dot_product(v1, v2, n, ps)
+
+Variables :
+    i : entier
+
+Début
+    ps ← 0
+    
+    Pour i de 0 à n-1 faire
+        ps ← ps + (v1[i] * v2[i])
+    FinPour
+
+Fin
+
+Algorithme Orthogonalite
+
+Variables :
+    v1, v2 : tableaux d'entiers
+    n, i : entiers
+    ps : entier
+
+Début
+
+    Lire n
+
+    Pour i de 1 à n faire
+        
+        Lire taille_vecteur
+        
+        // Saisie vecteurs
+        Pour j de 0 à taille_vecteur-1 faire
+            Lire v1[j]
+        FinPour
+
+        Pour j de 0 à taille_vecteur-1 faire
+            Lire v2[j]
+        FinPour
+
+        // Appel procédure
+        dot_product(v1, v2, taille_vecteur, ps)
+
+        Si ps = 0 alors
+            Afficher "Vecteurs orthogonaux"
+        Sinon
+            Afficher "Vecteurs non orthogonaux"
+        FinSi
+
+    FinPour
+
+Fin
+
+Fonction dot_product(v1, v2, n) : entier
+
+Variables :
+    i, ps : entier
+
+Début
+    ps ← 0
+    
+    Pour i de 0 à n-1 faire
+        ps ← ps + (v1[i] * v2[i])
+    FinPour
+
+    Retourner ps
+
+Fin
+
